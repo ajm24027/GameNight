@@ -4,23 +4,26 @@ body {
   font-family: 'Fira Sans', sans-serif;
   font-family: 'Work Sans', sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #404eed;
+  background-image: linear-gradient(315deg, #4158D0 0%, #d44178 46%, #fb9c4b 100%);  
 }
 
 .Header {
   height: auto;
-  width: 60vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .Hero-Container {
   margin: 40px auto;
   display: flex;
   height: auto;
+  justify-content: space-between;
   }
 
 nav {
@@ -29,25 +32,12 @@ nav {
   align-items: center;
 
   height: 80px;
-  width: 100%;
+  width: 80%;
 
   font: 16px "Work Sans", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-}
+  font-weight: 800;
 
-.nav-right a {
-margin: 10px;
-padding: 10px;
-}
-
-nav a {
-  color: aliceblue;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: aliceblue;
-  text-decoration: underline;
+  cursor: pointer;
 }
 
 .logo {
@@ -55,11 +45,40 @@ nav a:hover {
   width: 134px;
 }
 
+.nav-login a {
+  color: #222222;
+  background-color: white;
+  padding: 5px 20px;
+  text-decoration: none;
+  border-radius: 20px;
+}
 
+.nav-center a {
+margin: 10px;
+padding: 10px;
+}
+
+.nav-center a {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.nav-center a:hover {
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+.Hero-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 780px;
+}
 
 .HeaderText {
   font: 56px "Fira Sans", Helvetica, Arial, sans-serif;
   color: aliceblue;
+  margin: 2rem;
   line-height: 53px;
 }
 
@@ -68,3 +87,8 @@ nav a:hover {
   color: aliceblue;
 }
 
+.header-end {
+  background-color: white;
+  width: 100vw;
+  height: 50px;
+}
