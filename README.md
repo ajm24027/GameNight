@@ -20,7 +20,7 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 - Adobe Photoshop
 - Adobe Illustrator
-- [Google Maps API](https://developers.google.com/maps)
+- [Google Maps API](https://developers.google.com/maps) & [Google Places API](https://developers.google.com/maps/documentation/places/web-service)
 - Express
 - NodeJS
 - EJS
