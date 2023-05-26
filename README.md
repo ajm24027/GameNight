@@ -4,7 +4,7 @@
 
 ### By: Anthony Medina
 
-[Game](https://playbdr.surge.sh) | [GitHub](https://github.com/ajm24027) | [LinkedIn](https://www.linkedin.com/in/anthonyjmedina/) | [Trello](https://trello.com/b/swfYYd4Y/gamenight) | [Portfolio](https://www.anthonyjmedina.com/)
+[GitHub](https://github.com/ajm24027) | [LinkedIn](https://www.linkedin.com/in/anthonyjmedina/) | [Trello](https://trello.com/b/swfYYd4Y/gamenight) | [Portfolio](https://www.anthonyjmedina.com/)
 
 ---
 
