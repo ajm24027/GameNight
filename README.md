@@ -20,11 +20,13 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 - Adobe Photoshop
 - Adobe Illustrator
-- 3rd Party APIs
+- [Google Maps API](https://developers.google.com/maps)
 - Express
 - NodeJS
 - EJS
 - HTML
+- MongoDB
+- Mongoose
 - CSS
 
 ---
@@ -47,7 +49,7 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 Google Maps API Integration
 
-1. [ x ] Translate Player/Owner Address to GEOCODE to enable "Search Nearby" GameNight Filter.
+1. [ x ] Translate Player/Owner Address to GEOCODE to enable "[Search Nearby](https://developers.google.com/maps/documentation/places/web-service/search-nearby)" GameNight Filter.
 2. [ x ] Incorporate Google Maps Places reference in a GameNights Dashboard.
 
 Active & Inactive GameNights
