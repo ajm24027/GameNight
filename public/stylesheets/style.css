@@ -1,7 +1,53 @@
 body {
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Work Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #404eed;
+}
+
+.Header {
+  height: auto;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Hero-Container {
+  margin: 40px auto;
+  display: flex;
+  height: auto;
+  }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+  width: 100%;
+
+  font: 16px "Work Sans", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.nav-right a {
+margin: 10px;
+padding: 10px;
+}
+
+nav a {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: aliceblue;
+  text-decoration: underline;
 }
 
 .logo {
@@ -9,6 +55,16 @@ body {
   width: 134px;
 }
 
-a {
-  color: #00B7FF;
+
+
+.HeaderText {
+  font: 56px "Fira Sans", Helvetica, Arial, sans-serif;
+  color: aliceblue;
+  line-height: 53px;
 }
+
+.HeaderSubText {
+  font-size: 19px;
+  color: aliceblue;
+}
+
