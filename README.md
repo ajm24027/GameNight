@@ -20,7 +20,7 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 - Adobe Photoshop
 - Adobe Illustrator
-- APIs
+- 3rd Party APIs
 - Express
 - NodeJS
 - EJS
