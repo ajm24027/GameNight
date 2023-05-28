@@ -5,9 +5,10 @@ var router = express.Router()
 router.get('/', (req, res, next) => {
   res.render('index', {
     title: 'GameNight | The Stress-Free Way to Plan and Play',
-    headerText: 'PICTURE THIS:',
+    headerBack: 'header-home.jpg',
+    headerText: 'FROM LFG TO NEW FRIENDS IN NO TIME.',
     headerSubText:
-      'Chilling with pals, planning a Dungeons and Dragons session. Excitement builds as the date approaches, but scheduling conflicts arise. Fear not, for GameNight is here to save the day! Bid farewell to rescheduling madness with our event management brilliance. Say goodbye to chaos and hello to uninterrupted gaming bliss. Let the games begin!',
+      'No more wasted weeks, last-minute reschedules! Embark on epic hijinks, forge legendary friendships. Say goodbye to tedious texts and calls. Get the tools to make sure your party is ready to roll!',
       headerAction: 'Sign Up'
   })
 })

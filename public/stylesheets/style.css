@@ -1,30 +1,27 @@
+* {
+  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+}
+
 body {
   margin: 0;
   font: 14px "Work Sans", Helvetica, Arial, sans-serif;
-  font-family: 'Fira Sans', sans-serif;
-  font-family: 'Work Sans', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(315deg, #4158D0 0%, #d44178 46%, #fb9c4b 100%);  
 }
 
 .Header {
-  height: auto;
+  height: 625px;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-image: url('/images/headers/header-home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-.Hero-Container {
-  margin: 40px auto;
-  display: flex;
-  height: auto;
-  justify-content: space-between;
-  }
 
 nav {
   display: flex;
@@ -34,7 +31,7 @@ nav {
   height: 80px;
   width: 80%;
 
-  font: 16px "Work Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   font-weight: 800;
 
   cursor: pointer;
@@ -68,27 +65,32 @@ padding: 10px;
   text-decoration: underline;
 }
 
-.Hero-Container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 780px;
+.header-text-container {
+  width: 50vw;
+  margin: 100px auto;
+  text-align: center;
 }
 
-.HeaderText {
+.headerText {
   font: 56px "Fira Sans", Helvetica, Arial, sans-serif;
   color: aliceblue;
   margin: 2rem;
   line-height: 53px;
+  text-align: center;
 }
 
-.HeaderSubText {
+.headerSubText {
   font-size: 19px;
   color: aliceblue;
+  margin-bottom: 50px;
 }
 
-.header-end {
-  background-color: white;
-  width: 100vw;
-  height: 50px;
+.header-action {
+  color: #222222;
+  background-color: aliceblue;
+  padding: 20px 50px;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 800;
+  font-size: 18px;
 }
