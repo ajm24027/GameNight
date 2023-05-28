@@ -12,6 +12,15 @@ const index = async (req, res) => {
   })
 }
 
+const newGameNight = (req, res) => {
+  const newGame = new GameNight()
+  res.render('gamenights/new', {
+    title: 'GameNight | Create a new GameNight',
+    errorMsg: ''
+  })
+}
+
 module.exports = {
-  index
+  index,
+  new: newGameNight
 }

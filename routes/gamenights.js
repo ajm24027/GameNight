@@ -5,4 +5,6 @@ const gameCtrl = require('../controllers/gamenights')
 
 router.get('/', gameCtrl.index)
 
+router.get('/new', gameCtrl.new)
+
 module.exports = router
