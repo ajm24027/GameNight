@@ -3,11 +3,15 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const session = require('express-session')
+const passport = require('passport')
+
+require('dotenv').config()
+require('./config/database')
+require('./config/passport')
 
 const indexRouter = require('./routes/index')
-const commentsRouter = require('./routes/comments')
 const gameNightsRouter = require('./routes/gamenights')
-const playersRouter = require('./routes/players')
 
 const app = express()
 
@@ -19,11 +23,30 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
+)
+app.use(passport.initialize())
+app.use(passport.session())
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  next()
+})
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  next()
+})
+
 app.use('/', indexRouter)
-app.use('/players', playersRouter)
-app.use('/gamenights', commentsRouter)
 app.use('/gamenights', gameNightsRouter)
 
 // catch 404 and forward to error handler
