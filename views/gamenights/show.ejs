@@ -6,6 +6,14 @@
       <button type="submit">Sign Up</button>
     </form>
 
+    <% if (user) { %>
+      <br><br>
+      <h2>Reviews</h2>
+      <form id="add-review-form" method="POST" action="/movies/<%= gamenight.id %>/reviews">
+        <label>Review:</label>
+        <textarea name="content"></textarea>
+        <input type="submit" value="Add Review">
+      </form>
+      <% } %>
 
-
-    <%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>

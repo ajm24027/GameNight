@@ -29,14 +29,19 @@ const gameNightSchema = new Schema({
     type: String,
     required: true
   },
+  // owner: {
+  //   user: {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'User',
+  //     required: true
+  //   },
+  //   userName: String,
+  //   userAvatar: String
+  // },
   owner: {
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
-    userName: String,
-    userAvatar: String
+    type: Schema.Types.Mixed,
+    default: {},
+    required: true
   },
   gameType: {
     type: String,

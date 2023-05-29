@@ -15,17 +15,29 @@ const index = async (req, res) => {
 const newGameNight = (req, res) => {
   const newGame = new GameNight()
   res.render('gamenights/new', {
-    title: 'GameNight | Create a new GameNight',
+    title: 'GameNight - Creation',
     errorMsg: ''
   })
 }
 
+// const createGame = async (req, res) => {
+//   req.body.owner = {
+//     user: res.locals.user._id,
+//     userName: res.locals.user.name,
+//     userAvatar: res.locals.user.avatar
+//   }
+//   const newGameNight = new GameNight(req.body)
+//   try {
+//     await newGameNight.save()
+//   } catch (err) {
+//     console.log(err)
+//   }
+
+//   res.redirect('/gamenights')
+// }
+
 const createGame = async (req, res) => {
-  req.body.owner = {
-    user: res.locals.user._id,
-    userName: res.locals.user.name,
-    userAvatar: res.locals.user.avatar
-  }
+  req.body.owner = res.locals.user
   const newGameNight = new GameNight(req.body)
   try {
     await newGameNight.save()
@@ -38,7 +50,10 @@ const createGame = async (req, res) => {
 
 const show = async (req, res) => {
   const gamenight = await GameNight.findById(req.params.id)
-  res.render('gamenights/show', { title: 'Test', gamenight })
+  res.render('gamenights/show', {
+    title: `${gamenight.eventName} - GameNights`,
+    gamenight
+  })
 }
 
 module.exports = {
