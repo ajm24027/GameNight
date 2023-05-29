@@ -4,10 +4,6 @@ const index = async (req, res) => {
   const gamenights = await GameNight.find({})
   res.render('gamenights/index', {
     title: 'GameNights - Explore',
-    headerText: 'FIND YOUR NEXT GAMENIGHT',
-    headerSubText:
-      "From Dungeons and Dragons, to Age of Wonders, to Commander. There's a GameNight for everyone",
-    headerAction: '',
     gamenights
   })
 }
@@ -15,14 +11,17 @@ const index = async (req, res) => {
 const newGameNight = (req, res) => {
   const newGame = new GameNight()
   res.render('gamenights/new', {
-    title: 'GameNight | Create a new GameNight',
+    title: 'GameNight - Create a new GameNight',
     errorMsg: ''
   })
 }
 
 const createGame = async (req, res) => {
-  req.body.owner = {
-    userName: req.user.name
+  let gameOwner = req.body.owner
+  gameOwner = {
+    user: res.locals.user.googleId, // Assign the googleId to owner.user
+    userName: res.locals.user.name, // Assign the user's name to owner.userName
+    userAvatar: res.locals.user.avatar // Assign the user's avatar to owner.userAvatar
   }
   const newGameNight = new GameNight(req.body)
   try {
