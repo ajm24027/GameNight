@@ -7,4 +7,8 @@ router.get('/', gameCtrl.index)
 
 router.get('/new', gameCtrl.new)
 
+router.get('/:id', gameCtrl.show)
+
+router.post('/', gameCtrl.createGame)
+
 module.exports = router

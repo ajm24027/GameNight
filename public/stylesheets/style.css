@@ -27,3 +27,17 @@ a {
 .login img {
   height: 30px;
 }
+
+.card {
+  display: block;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.card:hover {
+  background-color: blue;
+}

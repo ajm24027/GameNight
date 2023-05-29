@@ -25,6 +25,10 @@ const gameNightSchema = new Schema({
     type: String,
     required: true
   },
+  eventDescription: {
+    type: String,
+    required: true
+  },
   owner: {
     user: {
       type: Schema.Types.ObjectId,
@@ -34,7 +38,7 @@ const gameNightSchema = new Schema({
     userName: String,
     userAvatar: String
   },
-  gametype: {
+  gameType: {
     type: String,
     default: 'Hangout'
   },
@@ -49,6 +53,10 @@ const gameNightSchema = new Schema({
   address: {
     type: String,
     required: true
+  },
+  players: {
+    type: Array,
+    default: []
   },
   comments: [commentSchema]
 })

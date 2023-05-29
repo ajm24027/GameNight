@@ -12,6 +12,7 @@ require('./config/passport')
 
 const indexRouter = require('./routes/index')
 const gameNightsRouter = require('./routes/gamenights')
+const signUpRouter = require('./routes/signups')
 
 const app = express()
 
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter)
 app.use('/gamenights', gameNightsRouter)
+app.use('/', signUpRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

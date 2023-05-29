@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+  <%= gamenight.eventName %>
+
+    <form action="/gamenights/<%= gamenight.id %>/signups" method="POST">
+      <button type="submit">Sign Up</button>
+    </form>
+
+
+
+    <%- include('../partials/footer') %>

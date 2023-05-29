@@ -1,14 +1,14 @@
 const GameNight = require('../models/gamenight')
 
 const index = async (req, res) => {
-  const gamenight = await GameNight.find({})
+  const gamenights = await GameNight.find({})
   res.render('gamenights/index', {
-    title: 'GameNights - Home',
+    title: 'GameNights - Explore',
     headerText: 'FIND YOUR NEXT GAMENIGHT',
     headerSubText:
       "From Dungeons and Dragons, to Age of Wonders, to Commander. There's a GameNight for everyone",
     headerAction: '',
-    gamenight
+    gamenights
   })
 }
 
@@ -20,7 +20,28 @@ const newGameNight = (req, res) => {
   })
 }
 
+const createGame = async (req, res) => {
+  req.body.owner = {
+    userName: req.user.name
+  }
+  const newGameNight = new GameNight(req.body)
+  try {
+    await newGameNight.save()
+  } catch (err) {
+    console.log(err)
+  }
+
+  res.redirect('/gamenights')
+}
+
+const show = async (req, res) => {
+  const gamenight = await GameNight.findById(req.params.id)
+  res.render('gamenights/show', { title: 'Test', gamenight })
+}
+
 module.exports = {
   index,
-  new: newGameNight
+  new: newGameNight,
+  createGame,
+  show
 }

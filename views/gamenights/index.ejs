@@ -1,3 +1,17 @@
 <%- include('../partials/header') %>
 
-  <%- include('../partials/footer') %>
+  <% gamenights.forEach((g)=> { %>
+    <a href="/gamenights/<%= g._id %>" class="card">
+      <div class="card-content">
+
+        <%= g._id %>
+          <%= g.eventName %>
+            <%= g.address %>
+              <%= g.gametype %>
+                <%= g.owner.userName %>
+
+      </div>
+    </a>
+    <% }) %>
+
+      <%- include('../partials/footer') %>
