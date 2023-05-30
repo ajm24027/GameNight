@@ -1,69 +1,49 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const commentSchema = new Schema(
+const gameNightSchema = new Schema(
   {
-    content: {
+    eventName: {
       type: String,
       required: true
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User.name',
+    eventDescription: {
+      type: String,
       required: true
     },
-    userName: String,
-    userAvatar: String
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    gameType: {
+      type: String,
+      default: 'Hangout'
+    },
+    active: {
+      type: Boolean,
+      default: true
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    },
+    address: {
+      type: String,
+      required: true
+    },
+    players: {
+      type: Array,
+      default: []
+    },
+    comments: {
+      type: Array,
+      default: []
+    }
   },
   {
     timestamps: true
   }
 )
-
-const gameNightSchema = new Schema({
-  eventName: {
-    type: String,
-    required: true
-  },
-  eventDescription: {
-    type: String,
-    required: true
-  },
-  // owner: {
-  //   user: {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'User',
-  //     required: true
-  //   },
-  //   userName: String,
-  //   userAvatar: String
-  // },
-  owner: {
-    type: Schema.Types.Mixed,
-    default: {},
-    required: true
-  },
-  gameType: {
-    type: String,
-    default: 'Hangout'
-  },
-  active: {
-    type: Boolean,
-    default: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  players: {
-    type: Array,
-    default: []
-  },
-  comments: [commentSchema]
-})
 
 module.exports = mongoose.model('GameNight', gameNightSchema)

@@ -1,4 +1,5 @@
 const GameNight = require('../models/gamenight')
+const User = require('../models/user')
 
 const index = async (req, res) => {
   const gamenights = await GameNight.find({})
@@ -13,34 +14,21 @@ const index = async (req, res) => {
 }
 
 const newGameNight = (req, res) => {
-  const newGame = new GameNight()
   res.render('gamenights/new', {
     title: 'GameNight - Creation',
     errorMsg: ''
   })
 }
 
-// const createGame = async (req, res) => {
-//   req.body.owner = {
-//     user: res.locals.user._id,
-//     userName: res.locals.user.name,
-//     userAvatar: res.locals.user.avatar
-//   }
-//   const newGameNight = new GameNight(req.body)
-//   try {
-//     await newGameNight.save()
-//   } catch (err) {
-//     console.log(err)
-//   }
-
-//   res.redirect('/gamenights')
-// }
-
 const createGame = async (req, res) => {
   req.body.owner = res.locals.user
   const newGameNight = new GameNight(req.body)
+
   try {
     await newGameNight.save()
+    const user = await User.findById(req.body.owner._id)
+    user.myGames = newGameNight._id
+    await user.save()
   } catch (err) {
     console.log(err)
   }
@@ -56,9 +44,30 @@ const show = async (req, res) => {
   })
 }
 
+const deleteGame = async (req, res) => {
+  try {
+    // Delete game from GameNight collection
+    await GameNight.findByIdAndDelete(req.params.id)
+
+    // Find the session user and update their myGames array
+    const user = await User.findById(res.locals.user._id)
+    user.myGames = user.myGames.filter(
+      (gameId) => gameId.toString() !== req.params.id
+    )
+    await user.save()
+
+    res.redirect('/profiles')
+  } catch (error) {
+    console.error(error)
+    // Handle error appropriately
+    res.status(500).send('Error deleting game.')
+  }
+}
+
 module.exports = {
   index,
   new: newGameNight,
   createGame,
-  show
+  show,
+  deleteGame
 }

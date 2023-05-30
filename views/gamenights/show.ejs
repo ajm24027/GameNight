@@ -9,11 +9,16 @@
     <% if (user) { %>
       <br><br>
       <h2>Reviews</h2>
-      <form id="add-review-form" method="POST" action="/movies/<%= gamenight.id %>/reviews">
+      <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
         <label>Review:</label>
         <textarea name="content"></textarea>
         <input type="submit" value="Add Review">
       </form>
       <% } %>
 
-        <%- include('../partials/footer') %>
+        <% gamenight.comments.forEach((c)=> { %>
+          <%= c.content %>
+            <%= c.userName %>
+              <% }) %>
+
+                <%- include('../partials/footer') %>

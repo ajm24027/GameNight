@@ -11,4 +11,6 @@ router.get('/:id', gameCtrl.show)
 
 router.post('/', gameCtrl.createGame)
 
+router.delete('/:id', gameCtrl.deleteGame)
+
 module.exports = router

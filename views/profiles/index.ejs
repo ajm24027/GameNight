@@ -1,16 +1,17 @@
 <%- include('../partials/header') %>
 
-  <% gamenights.forEach((g)=> { %>
+  <h1>My Games</h1>
+  <% profile.myGames.forEach((g)=> { %>
     <a href="/gamenights/<%= g._id %>" class="card">
       <div class="card-content">
-
         <%= g.eventName %>
-          <%= g.address %>
-            <%= g.gameType %>
-
+          <form action="/gamenights/<%= g._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form>
 
       </div>
     </a>
     <% }) %>
+
 
       <%- include('../partials/footer') %>
