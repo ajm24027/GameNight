@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const profilesCtrl = require('../controllers/profiles.js')
+const geoCodeCtrl = require('../controllers/geocodes')
 const ensureLoggedIn = require('../config/ensureLoggedin.js')
 
-router.get('/', ensureLoggedIn, profilesCtrl.index)
+router.post('/gamenights/:id/geocode', geoCodeCtrl.newGeoCode)
 
 module.exports = router

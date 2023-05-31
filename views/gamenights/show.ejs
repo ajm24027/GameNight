@@ -6,19 +6,38 @@
       <button type="submit">Sign Up</button>
     </form>
 
-    <% if (user) { %>
-      <br><br>
-      <h2>Reviews</h2>
-      <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
-        <label>Review:</label>
-        <textarea name="content"></textarea>
-        <input type="submit" value="Add Review">
-      </form>
+    <form action="/gamenights/<%= gamenight.id %>/geocode" method="POST">
+      <input type="text" name="address" placeholder="Address">
+      <button type="submit">Add Address</button>
+    </form>
+
+
+    <% if (user?._id.equals(gamenight.owner)) { %>
+
       <% } %>
 
-        <% gamenight.comments.forEach((c)=> { %>
-          <%= c.content %>
-            <%= c.userName %>
-              <% }) %>
 
-                <%- include('../partials/footer') %>
+        <% if (gamenight.address.length) { %>
+
+
+          <img alt='static Mapbox map of the San Francisco bay area'
+            src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+ff2600(<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>)/<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>,14,0.00,0.00/300x200@2x?access_token=<%= geoApi %>'>
+
+          <% } %>
+
+            <% if (user) { %>
+              <br><br>
+              <h2>Party Chat</h2>
+              <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
+                <label>Review:</label>
+                <textarea name="content"></textarea>
+                <input type="submit" value="Add Review">
+              </form>
+              <% } %>
+
+                <% comment.forEach((c)=> { %>
+                  <%= c.content %>
+                    <%= c.userName %>
+                      <% }) %>
+
+                        <%- include('../partials/footer') %>

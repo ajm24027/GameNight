@@ -6,6 +6,7 @@ const logger = require('morgan')
 const session = require('express-session')
 const passport = require('passport')
 const methodOverride = require('method-override')
+const bodyParser = require('body-parser')
 
 require('dotenv').config()
 require('./config/database')
@@ -16,6 +17,7 @@ const gameNightsRouter = require('./routes/gamenights')
 const signUpsRouter = require('./routes/signups')
 const commentsRouter = require('./routes/comments')
 const profilesRouter = require('./routes/profiles')
+const geoCodesRouter = require('./routes/geocodes')
 
 const app = express()
 
@@ -56,6 +58,7 @@ app.use('/gamenights', gameNightsRouter)
 app.use('/', signUpsRouter)
 app.use('/', commentsRouter)
 app.use('/profiles', profilesRouter)
+app.use('/', geoCodesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

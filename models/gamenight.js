@@ -28,10 +28,7 @@ const gameNightSchema = new Schema(
       type: Date,
       default: Date.now
     },
-    address: {
-      type: String,
-      required: true
-    },
+    address: [],
     players: {
       type: Array,
       default: []

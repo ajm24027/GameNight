@@ -1,6 +1,7 @@
 const GameNight = require('../models/gamenight')
 const Comment = require('../models/comment')
 
+
 const createComment = async (req, res) => {
   console.log(req.params.id)
   req.body.game = req.params.id
