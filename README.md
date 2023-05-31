@@ -20,14 +20,15 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 - Adobe Photoshop
 - Adobe Illustrator
-- [Google Maps API](https://developers.google.com/maps) & [Google Places API](https://developers.google.com/maps/documentation/places/web-service)
+- [Mapbox Static Images API](https://www.mapbox.com/static-maps) & [Mapbox Geocoding API](https://www.mapbox.com/geocoding)
 - Express
 - NodeJS
-- EJS
+- [EJS](https://ejs.co/)
 - HTML
 - MongoDB
 - Mongoose
 - CSS
+- [Axios](https://axios-http.com/)
 
 ---
 
@@ -47,10 +48,10 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 
 ### **_Future Updates_**
 
-Google Maps API Integration
+Mapbox API Integration
 
-1. [ x ] Translate Player/Owner Address to GEOCODE to enable "[Search Nearby](https://developers.google.com/maps/documentation/places/web-service/search-nearby)" GameNight Filter.
-2. [ x ] Incorporate Google Maps Places reference in a GameNights Dashboard.
+1. [ x ] Enable [Local Search](https://docs.mapbox.com/help/tutorials/local-search-geocoding-api/) to render GameNight's that are near a Player Home.
+2. [ ✅ ] Incorporate Dynamic Static Map reference in a GameNight's Dashboard.
 
 Active & Inactive GameNights
 

@@ -7,6 +7,7 @@ const newGeoCode = async (req, res) => {
 
   try {
     const response = await axios.get(
+      // https://docs.mapbox.com/api/search/geocoding/ "The search text should be expressed as a URL-encoded UTF-8 string, and must not contain the semicolon character (either raw or URL-encoded). Your search text, once decoded, must consist of at most 20 words and numbers separated by spacing and punctuation, and at most 256 characters."
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
         address
       )}.json?access_token=${apiKey}`
