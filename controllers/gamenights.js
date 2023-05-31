@@ -44,18 +44,25 @@ const show = async (req, res) => {
   })
 }
 
+// Take a note of this puppy VV
+
 const deleteGame = async (req, res) => {
   try {
     // Delete game from GameNight collection
     await GameNight.findByIdAndDelete(req.params.id)
-
-    // Find the session user and update their myGames array
+    // Find the user that matches with the session user._id
     const user = await User.findById(res.locals.user._id)
+    // Target user.myGames and make a shallow copy with .filter()
     user.myGames = user.myGames.filter(
+      // The filter here, takes the objectIds in the myGames array, and turns them into
+      // strings that are compared to req.params.id (the id passed when we press the delete
+      // button). Those strings that DO NOT match the req.params.id are kept.
       (gameId) => gameId.toString() !== req.params.id
     )
+    // Once the filter is complete, we save the user in its current state (with one less
+    // game inside of it)
     await user.save()
-
+    // Redirect to profiles page for user to confirm that the change occured.
     res.redirect('/profiles')
   } catch (error) {
     console.error(error)
@@ -64,10 +71,13 @@ const deleteGame = async (req, res) => {
   }
 }
 
+const editGame = (req, res) => {}
+
 module.exports = {
   index,
   new: newGameNight,
   createGame,
   show,
-  deleteGame
+  deleteGame,
+  editGame
 }

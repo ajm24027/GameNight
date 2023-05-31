@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router()
-
 const gameCtrl = require('../controllers/gamenights')
+const ensureLoggedIn = require('../config/ensureLoggedin.js')
 
 router.get('/', gameCtrl.index)
 
-router.get('/new', gameCtrl.new)
+router.get('/new', ensureLoggedIn, gameCtrl.new)
 
 router.get('/:id', gameCtrl.show)
 
-router.post('/', gameCtrl.createGame)
+router.post('/', ensureLoggedIn, gameCtrl.createGame)
 
-router.delete('/:id', gameCtrl.deleteGame)
+router.delete('/:id', ensureLoggedIn, gameCtrl.deleteGame)
 
 module.exports = router
