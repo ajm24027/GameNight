@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/images/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="/images/branding/favicon-16x16.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,25 +27,44 @@
 
 <body>
   <div class="header" style="background-image: url('<%= headerImg %>'); background-size: cover;">
+
     <nav>
 
       <div class="nav-logo">
-        <a href="/"><img src="/images/GameNight Logo.png" alt="GameNight" class="logo"></a>
+        <a href="/"><img src="/images/branding/GameNight Logo.png" alt="GameNight" class="logo"></a>
       </div>
 
       <div class="nav-center">
-        <a href="/gamenights">Explore</a>
-        <% if (user) { %>
 
+        <% if (user) { %>
+          <a href="/gamenights">Explore</a>
           <a href="/gamenights/new">Create</a>
           <a href="/profiles">Profile</a>
-          <a href="/logout">Log Out</a>
+          <% } else { %>
+            <p>Get started by logging in!</p>
+            <% } %>
       </div>
 
       <div class="nav-right">
-        <% } else { %>
-          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-          <% } %>
+        <% if (user) { %>
+          <a href="/logout" class="logout">Log Out</a>
+          <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+            <% } %>
       </div>
+
     </nav>
+
+    <div class="hero-container">
+      <div class="hero-text">
+        <div class="hero-header">
+          <%= heroHead %>
+        </div>
+        <div class="hero-sub">
+          <%= heroSub %>
+        </div>
+      </div>
+
+    </div>
+
   </div>

@@ -6,10 +6,9 @@ const index = async (req, res) => {
   const gamenights = await GameNight.find({})
   res.render('gamenights/index', {
     title: 'GameNights - Explore',
-    headerText: 'FIND YOUR NEXT GAMENIGHT',
-    headerSubText:
-      "From Dungeons and Dragons, to Age of Wonders, to Commander. There's a GameNight for everyone",
-    headerAction: '',
+    heroHead: 'EMBARK ON AN ADVENTURE',
+    heroSub: 'to find the perfect GameNight for you.',
+    headerImg: '/images/headers/header-explore.jpg',
     gamenights
   })
 }

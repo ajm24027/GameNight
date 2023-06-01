@@ -13,4 +13,6 @@ router.post('/', ensureLoggedIn, gameCtrl.createGame)
 
 router.delete('/:id', ensureLoggedIn, gameCtrl.deleteGame)
 
+
+
 module.exports = router
