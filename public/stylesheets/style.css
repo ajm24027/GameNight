@@ -1,4 +1,9 @@
 * {
+  --notQuiteBlack: #333333;
+  --gameNightWhite: #ffffff;
+  --offWhite: #F6F6F6;
+  --mysticPurple: #7983F5;
+
   font-family: 'Fira Sans', sans-serif;
   font-family: 'Work Sans', sans-serif;
 }
@@ -10,7 +15,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #333333;
+  background-color: var(--gameNightWhite);
+}
+
+.header {
+  width: 100vw;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.nav-logo img {
+  width: 124px;
+  height: auto;
 }
 
 a {

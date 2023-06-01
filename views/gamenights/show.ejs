@@ -2,17 +2,17 @@
 
   <%= gamenight.eventName %>
 
+
     <form action="/gamenights/<%= gamenight.id %>/signups" method="POST">
       <button type="submit">Sign Up</button>
     </form>
 
-    <form action="/gamenights/<%= gamenight.id %>/geocode" method="POST">
-      <input type="text" name="address" placeholder="Address">
-      <button type="submit">Add Address</button>
-    </form>
-
 
     <% if (user?._id.equals(gamenight.owner)) { %>
+      <form action="/gamenights/<%= gamenight.id %>/geocode" method="POST">
+        <input type="text" name="address" placeholder="Address">
+        <button type="submit">Add Address</button>
+      </form>
 
       <% } %>
 

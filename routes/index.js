@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-
 router.get(
   '/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
@@ -24,7 +23,8 @@ router.get('/logout', function (req, res) {
 
 router.get('/', (req, res, next) => {
   res.render('index', {
-    title: 'GameNight | The Stress-Free Way to Plan and Play'
+    title: 'GameNight | The Stress-Free Way to Plan and Play',
+    headerImg: '/images/headers/header-home-b.jpg'
   })
 })
 
