@@ -1,56 +1,74 @@
 <%- include('../partials/header') %>
+  <div class="profile-body">
+    <h2>Your Information</h2>
 
-  <img src=" <%= profile.avatar %> " alt="">
-  <%= profile.name %>
-    <%= profile.email %>
+    <div class="profile-upper">
+
+      <img src=" <%= profile.avatar %> " alt="" class="profile-img">
+      <div class="username">
+        <h4>Username:</h4>
+        <p>
+          <%= profile.name %>
+        </p>
+      </div>
+      <div class="useremail">
+        <h4>User Email:</h4>
+        <p>
+          <%= profile.email %>
+        </p>
+      </div>
+    </div>
+
+    <% if (profile.myGames.length) { %>
+
+      <hr class="divider">
 
       <h1>My Games</h1>
       <div class="games-container">
 
-        <% if (profile.myGames.length) { %>
+        <% profile.myGames.forEach((g)=> { %>
+          <a href="/gamenights/<%= g._id %>" class="card">
+            <div class="card-image">
+              <img src="/images/card/<%= g.gameType %>.jpg" alt="">
+            </div>
 
+            <div class="card-content">
 
-          <% profile.myGames.forEach((g)=> { %>
-            <a href="/gamenights/<%= g._id %>" class="card">
-              <div class="card-image">
-                <img src="/images/card/<%= g.gameType %>.jpg" alt="">
-              </div>
+              <p class="card-gametype">
+                <%= g.gameType %>
+              </p>
 
-              <div class="card-content">
-
-                <p class="card-gametype">
-                  <%= g.gameType %>
-                </p>
-
-                <p class="card-gamename">
-                  <%= g.eventName %>
-                </p>
-
-                <div class="gamecard-bottom">
-
-                  <p class="card-gamedate">
-                    <%= g.date.toString().slice(0, 15) %>
-                  </p>
-                  <p class="card-players">
-                    <span style="color: #B6B6B6">
-                      <i class="fa-solid fa-user"></i>
-                    </span>
-                    <%= g.players.length %>
-                  </p>
-                </div>
-
-              </div>
-
-              <div class="card-manage">
+              <p class="card-gamename">
                 <%= g.eventName %>
-                  <form action="/gamenights/<%= g._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                  </form>
+              </p>
+
+              <div class="gamecard-bottom">
+
+                <p class="card-gamedate">
+                  <%= g.date.toString().slice(0, 15) %>
+                </p>
+                <p class="card-players">
+                  <span style="color: #B6B6B6">
+                    <i class="fa-solid fa-user"></i>
+                  </span>
+                  <%= g.players.length %>
+                </p>
               </div>
 
-            </a>
-            <% }) %>
-              <% } %>
+            </div>
+
+            <div class="card-manage">
+              <h5>Delete <%= g.eventName %> ?</h5>
+              <form action="/gamenights/<%= g._id %>?_method=DELETE" method="POST">
+                <button type="submit"><i class="fa-solid fa-trash"></i></button>
+              </form>
+            </div>
+
+          </a>
+          <% }) %>
+            <% } %>
       </div>
 
-      <%- include('../partials/footer') %>
+  </div>
+
+  <%- include('../partials/footer') %>

@@ -61,35 +61,43 @@
     </div>
 
     <% if (user) { %>
-      <br><br>
-      <h2>Party Chat</h2>
-      <% if (user && gamenight.players.includes(user._id)) { %>
-        <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
-          <textarea name="content"></textarea>
-          <input type="submit" value="Add Comment">
-        </form>
-        <% } %>
 
-          <% comments.forEach((comment)=> { %>
-            <div class="comment">
-              <img src="<%= comment.userAvatar %>" alt="Avatar">
-              <p>
-                <%= comment.content %>
-              </p>
-              <div class="comment-right">
-                <h5>
-                  <%= comment.userName %>
-                </h5>
-                <h5>
-                  <%= comment.createdAt.toLocaleString().slice(10, 21) %>
-                </h5>
-              </div>
-            </div>
-            <% }) %>
-              <% } %>
+      <hr class="divider">
 
+      <h2>The Party</h2>
 
+      <% if (gamenight.players.length) { %>
 
+        <% gamenight.players.forEach((p)=> { %>
+          <div class="badge">
+            <%= p.userName %>
+          </div>
+          <% }); %>
+            <% } %>
+
+              <h2>Party Chat</h2>
+              <form id="add-comment-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
+                <textarea name="content"></textarea>
+                <input type="submit" value="Add Comment">
+              </form>
+
+              <% comments.forEach((comment)=> { %>
+                <div class="comment">
+                  <img src="<%= comment.userAvatar %>" alt="Avatar">
+                  <p>
+                    <%= comment.content %>
+                  </p>
+                  <div class="comment-right">
+                    <h5>
+                      <%= comment.userName %>
+                    </h5>
+                    <h5>
+                      <%= comment.createdAt.toLocaleString().slice(10, 21) %>
+                    </h5>
+                  </div>
+                </div>
+                <% }) %>
+                  <% } %>
   </div>
 
   <%- include('../partials/footer') %>

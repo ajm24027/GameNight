@@ -6,7 +6,7 @@
 
   font-family: 'Fira Sans', sans-serif;
   font-family: 'Work Sans', sans-serif;
-  border: 1px solid red
+
 }
 
 body {
@@ -303,7 +303,6 @@ p {
   margin: 0.3rem 0;
   color: var(--notQuiteBlack);
 }
-
 /* End Gamenights Styling */
 
 /* Start Show Styling */
@@ -398,4 +397,98 @@ width: 30vw;
     flex-direction: column;
     justify-content: space-between;
     color: #aaa;
+  }
+
+  #add-comment-form {
+    display: flex;
+    justify-content: space-between;
+    width: 31vw;
+  }
+
+  #add-comment-form textarea {
+    width: 75%;
+  }
+
+  /* End Show Styling */
+
+  form {
+    display: flex;
+    margin: auto 60px;
+    justify-content: space-around;
+    max-width: 100vw;
+    align-content: center;
+  }
+
+  form input {
+    width: 20%;
+  }
+
+  form textarea {
+    width: 20%;
+  }
+
+  .form-title {
+    margin-left: 4%;
+    margin-top: 60px;
+  }
+  /* Start Profile Styling */
+
+  .profile-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin-top: 60px;
+  }
+
+  .profile-upper {
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+  }
+
+  .profile-img {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+  }
+
+  .card-manage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .card-manage h5 {
+    font: 14px "Work Sans", Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: #ED4245;
+  }
+
+  .card-manage button {
+    display: inline-block;
+    background-color: #ED4245;
+    padding: 5px;
+    width: 50px;
+    color: #ffffff;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .badge {
+    background-color: #214223;
+    color: #49e174;
+    padding: .5rem;
+    margin: .5rem;
+    border-radius: .3rem;
+    font-size: .8rem;
+    font-weight: 700;
+    text-align: center;
   }
