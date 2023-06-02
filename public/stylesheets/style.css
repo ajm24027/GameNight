@@ -502,3 +502,7 @@ width: 30vw;
     justify-content: center;
     align-items: center;
   }
+
+  .card-manage form {
+    margin: 0;
+  }
