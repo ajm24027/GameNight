@@ -21,6 +21,7 @@
         <button type="submit" class="sign-up-btn">Sign Up</button>
       </form>
 
+
     </div>
 
     <hr class="divider">
@@ -61,28 +62,33 @@
 
     <% if (user) { %>
       <br><br>
-
-      <pre class="code-block">
-        <code>
-          // Your code here
-          function greet() {
-            console.log("Hello, world!");
-          }
-        </code>
-      </pre>
-
       <h2>Party Chat</h2>
-      <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
-        <label>Review:</label>
-        <textarea name="content"></textarea>
-        <input type="submit" value="Add Review">
-      </form>
-      <% } %>
+      <% if (user && gamenight.players.includes(user._id)) { %>
+        <form id="add-review-form" method="POST" action="/gamenights/<%= gamenight.id %>/comments">
+          <textarea name="content"></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+        <% } %>
 
-        <% comment.forEach((c)=> { %>
-          <%= c.content %>
-            <%= c.userName %>
-              <% }) %>
+          <% comments.forEach((comment)=> { %>
+            <div class="comment">
+              <img src="<%= comment.userAvatar %>" alt="Avatar">
+              <p>
+                <%= comment.content %>
+              </p>
+              <div class="comment-right">
+                <h5>
+                  <%= comment.userName %>
+                </h5>
+                <h5>
+                  <%= comment.createdAt.toLocaleString().slice(10, 21) %>
+                </h5>
+              </div>
+            </div>
+            <% }) %>
+              <% } %>
+
+
 
   </div>
 

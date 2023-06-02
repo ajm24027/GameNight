@@ -1,19 +1,56 @@
 <%- include('../partials/header') %>
 
-  <% if (profile.myGames.length) { %>
-    <h1>My Games</h1>
-    <% profile.myGames.forEach((g)=> { %>
-      <a href="/gamenights/<%= g._id %>" class="card">
-        <div class="card-content">
-          <%= g.eventName %>
-            <form action="/gamenights/<%= g._id %>?_method=DELETE" method="POST">
-              <button type="submit">X</button>
-            </form>
+  <img src=" <%= profile.avatar %> " alt="">
+  <%= profile.name %>
+    <%= profile.email %>
 
-        </div>
-      </a>
-      <% }) %>
-        <% } %>
+      <h1>My Games</h1>
+      <div class="games-container">
+
+        <% if (profile.myGames.length) { %>
 
 
-          <%- include('../partials/footer') %>
+          <% profile.myGames.forEach((g)=> { %>
+            <a href="/gamenights/<%= g._id %>" class="card">
+              <div class="card-image">
+                <img src="/images/card/<%= g.gameType %>.jpg" alt="">
+              </div>
+
+              <div class="card-content">
+
+                <p class="card-gametype">
+                  <%= g.gameType %>
+                </p>
+
+                <p class="card-gamename">
+                  <%= g.eventName %>
+                </p>
+
+                <div class="gamecard-bottom">
+
+                  <p class="card-gamedate">
+                    <%= g.date.toString().slice(0, 15) %>
+                  </p>
+                  <p class="card-players">
+                    <span style="color: #B6B6B6">
+                      <i class="fa-solid fa-user"></i>
+                    </span>
+                    <%= g.players.length %>
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="card-manage">
+                <%= g.eventName %>
+                  <form action="/gamenights/<%= g._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                  </form>
+              </div>
+
+            </a>
+            <% }) %>
+              <% } %>
+      </div>
+
+      <%- include('../partials/footer') %>

@@ -42,8 +42,8 @@ const createGame = async (req, res) => {
 
 const show = async (req, res) => {
   const gamenight = await GameNight.findById(req.params.id)
-  const comment = await Comment.find({ game: req.params.id })
-  console.log(comment)
+  const comments = await Comment.find({ game: req.params.id })
+  console.log(comments)
   await res.render('gamenights/show', {
     geoApi: process.env.GEOCODE_KEY,
     title: `${gamenight.eventName} - GameNights`,
@@ -51,7 +51,7 @@ const show = async (req, res) => {
     heroHead: `${gamenight.eventName} - GameNights`,
     heroSub: `${gamenight.eventName} - GameNights`,
     gamenight,
-    comment
+    comments
   })
 }
 
