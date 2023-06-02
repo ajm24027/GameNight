@@ -1,16 +1,41 @@
 <%- include('../partials/header') %>
 
-  <% gamenights.forEach((g)=> { %>
-    <a href="/gamenights/<%= g._id %>" class="card">
-      <div class="card-content">
+  <div class="games-container">
 
-        <%= g.eventName %>
-          <%= g.address %>
+    <% gamenights.forEach((g)=> { %>
+      <a href="/gamenights/<%= g._id %>" class="card">
+        <div class="card-image">
+          <img src="/images/card/<%= g.gameType %>.jpg" alt="">
+        </div>
+
+        <div class="card-content">
+
+          <p class="card-gametype">
             <%= g.gameType %>
+          </p>
 
+          <p class="card-gamename">
+            <%= g.eventName %>
+          </p>
 
-      </div>
-    </a>
-    <% }) %>
+          <div class="gamecard-bottom">
 
-      <%- include('../partials/footer') %>
+            <p class="card-gamedate">
+              <%= g.date.toString().slice(0, 15) %>
+            </p>
+            <p class="card-players">
+              <span style="color: #B6B6B6
+              ">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <%= g.players.length %>
+            </p>
+          </div>
+
+        </div>
+
+      </a>
+      <% }) %>
+  </div>
+
+  <%- include('../partials/footer') %>

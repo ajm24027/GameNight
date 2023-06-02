@@ -1,12 +1,36 @@
 <%- include('../partials/header') %>
 
-  <%= gamenight.eventName %>
+  <div class="show-container">
 
+    <div class="signup-bar">
 
-    <form action="/gamenights/<%= gamenight.id %>/signups" method="POST">
-      <button type="submit">Sign Up</button>
-    </form>
+      <div class="signup-left">
+        <p class="event-name">
+          <%= gamenight.eventName %>
+        </p>
+        <p class="game-players">
+          <span style="color: #B6B6B6
+        ">
+            <i class="fa-solid fa-user"></i>
+          </span>
+          <%= gamenight.players.length %>
+        </p>
+      </div>
 
+      <form action="/gamenights/<%= gamenight.id %>/signups" method="POST">
+        <button type="submit" class="sign-up-btn">Sign Up</button>
+      </form>
+
+    </div>
+
+    <hr class="divider">
+
+    <div class="about-sec">
+      <h3>About</h3>
+      <p>
+        <%= gamenight.eventDescription %>
+      </p>
+    </div>
 
     <% if (user?._id.equals(gamenight.owner)) { %>
       <form action="/gamenights/<%= gamenight.id %>/geocode" method="POST">
@@ -18,11 +42,9 @@
 
 
         <% if (gamenight.address.length) { %>
-
-
           <img alt='static Mapbox map of the San Francisco bay area'
-            src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+ff2600(<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>)/<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>,14,0.00,0.00/300x200@2x?access_token=<%= geoApi %>'>
-
+            src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+ff2600(<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>)/<%= gamenight.address[0][0] %>,<%= gamenight.address[0][1] %>,14,0.00,0.00/300x200@2x?access_token=<%= geoApi %>'
+            class="Mapbox">
           <% } %>
 
             <% if (user) { %>
@@ -40,4 +62,6 @@
                     <%= c.userName %>
                       <% }) %>
 
-                        <%- include('../partials/footer') %>
+  </div>
+
+  <%- include('../partials/footer') %>

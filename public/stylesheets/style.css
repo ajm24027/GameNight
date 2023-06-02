@@ -6,15 +6,15 @@
 
   font-family: 'Fira Sans', sans-serif;
   font-family: 'Work Sans', sans-serif;
-
 }
 
 body {
   margin: 0;
   font: 14px "Work Sans", Helvetica, Arial, sans-serif;
-  align-items: center;
   background-color: var(--gameNightWhite);
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
 }
 
 .header {
@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  max-width: 100%;
   height: auto;
 }
 
@@ -31,9 +31,9 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  width: 99vw;
   height: 80px;
-  width: 100vw;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-logo {
@@ -43,6 +43,7 @@ nav {
 .nav-logo img, footer img {
   width: 124px;
   height: auto;
+
 }
 
 .nav-center p {
@@ -79,15 +80,24 @@ a {
   text-decoration: none;
   padding: 7px 16px;
   border-radius: 40px;
+  text-shadow: none;
 }
 
 .login img {
   height: 30px;
 }
 
+.logout {
+  text-decoration: none;
+}
+
+.logout:hover {
+  text-decoration: underline;
+}
+
 .hero-container {
   height: 40vh;
-  width: 50%;
+  max-width: 50%;
   padding: 100px 30px;
 
   display: flex;
@@ -105,6 +115,9 @@ a {
   align-items: center;
   text-align: center;
   justify-content: center;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .hero-header {
@@ -116,52 +129,7 @@ color: var(--gameNightWhite);
   font: 20px/38px 'Work Sans', sans-serif;
   color: var(--gameNightWhite);
   margin-top: 40px;
-  }
 
-  .marketing-left, .marketing-right {
-    width: 100vw;
-    height: 40vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-
-  .marketing-image {
-    max-width: 678px;
-    height: auto;
-  }
-
-  .marketing-left {
-    background-color: var(--gameNightWhite);
-  }
-
-  .marketing-right {
-    background-color: var(--offWhite);
-  }
-
-  .marketing-content {
-    width: 25%;
-  }
-
-  .marketing-right .marketing-content {
-    width: 25%;
-    margin: auto 30px;
-  }
-
-  h1 {
-    font: 48px/48px 'Fira Sans', sans-serif;
-color: var(--notQuiteBlack);
-  }
-
-  h2 {
-    font: 32px/32px 'Fira Sans', sans-serif;
-color: var(--notQuiteBlack);
-  }
-
-  p {
-    font: 20px/38px 'Work Sans', sans-serif;
-    color: var(--notQuiteBlack);
   }
 
   .CTA {
@@ -189,26 +157,12 @@ color: var(--notQuiteBlack);
     height: auto;
   }
 
-.card {
-  display: block;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  text-decoration: none;
-  color: white;
-}
-
-.card:hover {
-  background-color: blue;
-}
-
 footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    max-width: 100%;
     height: 80px;
 
     background-color: var(--notQuiteBlack);
@@ -223,4 +177,192 @@ footer {
 
 .nav-social-media i {
   margin: 0 16px;
+}
+/* End Header/Footer Styling */
+
+/* Start Index Styling */
+.marketing-left, .marketing-right {
+  max-width: 100%;
+  height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.marketing-image {
+  max-width: 678px;
+  height: auto;
+}
+
+.marketing-left {
+  background-color: var(--gameNightWhite);
+}
+
+.marketing-right {
+  background-color: var(--offWhite);
+}
+
+.marketing-content {
+  width: 25%;
+}
+
+.marketing-right .marketing-content {
+  width: 25%;
+  margin: auto 30px;
+}
+
+h1 {
+  font: 48px/48px 'Fira Sans', sans-serif;
+color: var(--notQuiteBlack);
+}
+
+h2 {
+  font: 32px/32px 'Fira Sans', sans-serif;
+color: var(--notQuiteBlack);
+}
+
+p {
+  font: 20px/38px 'Work Sans', sans-serif;
+  color: var(--notQuiteBlack);
+}
+/* End Index Styling */
+
+/* Start GameNight Styling */
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: 60px auto;
+}
+
+.card {
+  display: block;
+  width: 420px;
+  height: 320px;
+  outline:1px solid #D9D9D9;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--notQuiteBlack);
+  margin: 8px 8px;
+}
+
+.card-image {
+  height: 66%;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+}
+
+.card:hover {
+  background-color: #e3e5e8;
+  outline:1px solid rgb(177, 177, 177);
+}
+
+.card-gametype {
+  font: 16px/16px 'Work Sans', sans-serif;
+  margin: 0.3rem 0;
+  color: #B6B6B6;
+}
+
+.card-gamename {
+  font: 20px/20px 'Work Sans', sans-serif;
+  margin: 0.3rem 0;
+  color: var(--notQuiteBlack);
+}
+
+.gamecard-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.fa-solid fa-user {
+  color: grey;
+}
+
+.card-gamedate {
+  font: 16px/16px 'Work Sans', sans-serif;
+  margin: 0.3rem 0;
+  color: var(--notQuiteBlack);
+}
+
+/* End Gamenights Styling */
+
+/* Start Show Styling */
+.show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 60px auto;
+}
+
+.Mapbox {
+  height: auto;
+  width: 360px;
+}
+
+.signup-bar {
+  display: flex;
+  width: 60vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-name {
+  font: 32px/0px 'Fira Sans', sans-serif;
+}
+
+.sign-up-btn {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 10px 40px;
+  font: 16px/16px 'Work Sans', sans-serif;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 80px;
+  color: #ffffff;
+  background-color: #2ea44f;
+}
+
+.signup-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-players {
+margin: 0;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #D9D9D9;
+  margin: 20px 0;
+  width: 60vw;
+}
+
+.about-sec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60vw;
 }
