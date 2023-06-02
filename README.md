@@ -37,12 +37,7 @@ With GameNight, you'll bid farewell to endless texts and phone calls, and embrac
 - Create your own GameNights
 - GameNight Dashboard to track player count, location of a GameNight, and GameNight specific chat interface.
 - Easily signup with your Gmail Account allowing you to attend GameNights, make GameNights, and customize your own profile.
-- Use intuitive filters to sort through GameNights you may be interested in.
 - Delete/Update a GameNight
-
----
-
-### **_Screenshots_**
 
 ---
 
