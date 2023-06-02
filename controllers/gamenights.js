@@ -16,13 +16,17 @@ const index = async (req, res) => {
 const newGameNight = (req, res) => {
   res.render('gamenights/new', {
     title: 'GameNight - Creation',
-    errorMsg: ''
+    errorMsg: '',
+    headerImg: '/images/headers/header-create.jpg',
+    heroHead: 'CREATE. HOST. CONQUER.',
+    heroSub: 'Orchestrate an unforgettable GameNight.'
   })
 }
 
 const createGame = async (req, res) => {
   req.body.owner = res.locals.user
   const newGameNight = new GameNight(req.body)
+  newGameNight.gametype = req.body.gametype
 
   try {
     await newGameNight.save()

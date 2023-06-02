@@ -18,7 +18,7 @@ const gameNightSchema = new Schema(
     },
     gameType: {
       type: String,
-      default: 'Hangout'
+      default: ''
     },
     active: {
       type: Boolean,
@@ -28,7 +28,14 @@ const gameNightSchema = new Schema(
       type: Date,
       default: Date.now
     },
-    address: [],
+    address: {
+      type: Array,
+      default: []
+    },
+    coordinates: {
+      type: Array,
+      default: []
+    },
     players: {
       type: Array,
       default: []

@@ -315,8 +315,8 @@ p {
 }
 
 .Mapbox {
-  height: auto;
-  width: 360px;
+  height: 300px;
+  max-width: 60vw;
 }
 
 .signup-bar {
@@ -366,3 +366,11 @@ margin: 0;
   align-items: flex-start;
   width: 60vw;
 }
+
+.location-sec {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  justify-content: space-between;
+}
+
